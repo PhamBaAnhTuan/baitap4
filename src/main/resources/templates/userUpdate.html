@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Update User</title>
+  <style>
+    form{
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      justify-content: center;
+      flex-direction: column;
+    }
+  </style>
 </head>
 <body>
-$END$
+<h1 style="text-align: center">Update User</h1>
+
+<form th:action="@{'/user/update/' + ${user.id}}" th:object="${user}" method="POST">
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" th:field="*{firstName}" required />
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" th:field="*{lastName}" required />
+
+  <button type="submit" style="width: 100px; background-color: forestgreen">Update User</button>
+</form>
 </body>
 </html>

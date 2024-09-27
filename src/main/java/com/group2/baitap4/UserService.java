@@ -15,4 +15,17 @@ public class UserService {
     public Iterable<UserModel> getAllUsers(){
         return userRepository.findAll();
     }
+
+    public UserModel getUserById(int id){
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public void updateUser(UserModel user){
+        userRepository.save(user);
+    }
+
+    public void deleteUser(int id){
+        userRepository.deleteById(id);
+    }
+
 }
